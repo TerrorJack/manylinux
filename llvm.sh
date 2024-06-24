@@ -4,13 +4,14 @@ set -euo pipefail
 
 microdnf upgrade
 
-microdnf install \
+microdnf install --enablerepo=devel \
   cmake \
   gcc-c++ \
   gzip \
   jq \
   libffi-devel \
   libxml2-devel \
+  libzstd-devel \
   ncurses-devel \
   ninja-build \
   python3 \
@@ -37,7 +38,7 @@ cmake \
   -DBOOTSTRAP_LLVM_ENABLE_RTTI=ON \
   -DBOOTSTRAP_LLVM_ENABLE_TERMINFO=ON \
   -DBOOTSTRAP_LLVM_ENABLE_ZLIB=ON \
-  -DBOOTSTRAP_LLVM_ENABLE_ZSTD=OFF \
+  -DBOOTSTRAP_LLVM_ENABLE_ZSTD=ON \
   -DBOOTSTRAP_LLVM_INSTALL_TOOLCHAIN_ONLY=ON \
   -DBOOTSTRAP_LLVM_LINK_LLVM_DYLIB=ON \
   -DBOOTSTRAP_LLVM_PARALLEL_LINK_JOBS=1 \
